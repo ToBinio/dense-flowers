@@ -1,0 +1,11 @@
+{
+  "required": true,
+  "package": "tobinio.denseflowers.mixin.client",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "SectionBuilderMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
