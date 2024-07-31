@@ -6,6 +6,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.BlockView;
+import tobinio.denseflowers.mixin.client.AbstractBlockAccessor;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +20,7 @@ public class OffsetGenerator {
 
     public static List<Vec3d> getFlowerOffsets(BlockState blockState, BlockView world, BlockPos flowerPos) {
         var baseLocation = blockState.getModelOffset(world, flowerPos);
+        AbstractBlockAccessor flower = (AbstractBlockAccessor) blockState.getBlock();
 
         var allLocations = new ArrayList<Vec3d>();
         allLocations.add(baseLocation);
@@ -27,7 +29,8 @@ public class OffsetGenerator {
 
         outer:
         for (int i = 0; i < getNumberOfSurroundingFlowers(world, flowerPos); i++) {
-            var newLocation = blockState.getModelOffset(world, flowerPos.add((i + 1) * 5, 0, (i + 1) * 3));
+            var newLocation = blockState.getModelOffset(world, flowerPos.add((i + 1) * 5, 0, (i + 1) * 3))
+                    .multiply(0.45 / flower.callGetMaxHorizontalModelOffset());
 
             for (Vec3d location : allLocations) {
                 if (location.distanceTo(newLocation) <= 0.4) {
