@@ -3,7 +3,9 @@
   "package": "tobinio.denseflowers.mixin.client",
   "compatibilityLevel": "JAVA_21",
   "client": [
-    "SectionBuilderMixin"
+    "SectionBuilderMixin",
+    "sodium.BlockRendererAccessor",
+    "sodium.BlockRenderMixin"
   ],
   "injectors": {
     "defaultRequire": 1
