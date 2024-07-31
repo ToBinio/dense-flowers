@@ -3,14 +3,14 @@
   "package": "tobinio.denseflowers.mixin.client",
   "compatibilityLevel": "JAVA_21",
   "client": [
+    "AbstractBlockAccessor",
     "SectionBuilderMixin",
-    "sodium.BlockRendererAccessor",
-    "sodium.BlockRenderMixin"
+    "sodium.ChunkBuilderMeshingTaskMixin"
   ],
   "injectors": {
     "defaultRequire": 1
   },
   "mixins": [
-    "AbstractBlockAccessor"
+    "sodium.BlockRenderContextAccessor"
   ]
 }
