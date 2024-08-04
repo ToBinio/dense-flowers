@@ -1,4 +1,4 @@
-package tobinio.denseflowers.mixin.client;
+package tobinio.denseflowers.mixin;
 
 import com.llamalad7.mixinextras.sugar.Local;
 import com.mojang.blaze3d.systems.VertexSorter;

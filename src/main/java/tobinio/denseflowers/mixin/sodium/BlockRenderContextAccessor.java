@@ -1,4 +1,4 @@
-package tobinio.denseflowers.mixin.client.sodium;
+package tobinio.denseflowers.mixin.sodium;
 
 import me.jellysquid.mods.sodium.client.render.chunk.compile.pipeline.BlockRenderContext;
 import org.joml.Vector3f;

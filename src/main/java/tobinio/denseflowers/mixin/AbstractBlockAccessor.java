@@ -1,4 +1,4 @@
-package tobinio.denseflowers.mixin.client;
+package tobinio.denseflowers.mixin;
 
 import net.minecraft.block.AbstractBlock;
 import org.spongepowered.asm.mixin.Mixin;

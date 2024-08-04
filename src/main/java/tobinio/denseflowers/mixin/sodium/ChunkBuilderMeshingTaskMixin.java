@@ -1,4 +1,4 @@
-package tobinio.denseflowers.mixin.client.sodium;
+package tobinio.denseflowers.mixin.sodium;
 
 import com.llamalad7.mixinextras.sugar.Local;
 import me.jellysquid.mods.sodium.client.render.chunk.compile.ChunkBuildBuffers;

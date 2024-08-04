@@ -15,21 +15,14 @@
 	},
 	"license": "MIT",
 	"icon": "assets/dense-flowers/icon.png",
-	"environment": "*",
+	"environment": "client",
 	"entrypoints": {
-		"main": [
-			"tobinio.denseflowers.DenseFlowers"
-		],
 		"client": [
-			"tobinio.denseflowers.DenseFlowersClient"
+			"tobinio.denseflowers.DenseFlowers"
 		]
 	},
 	"mixins": [
-		"dense-flowers.mixins.json",
-		{
-			"config": "dense-flowers.client.mixins.json",
-			"environment": "client"
-		}
+		"dense-flowers.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=${loader_version}",

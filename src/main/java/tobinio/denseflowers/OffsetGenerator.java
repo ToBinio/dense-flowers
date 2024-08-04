@@ -6,7 +6,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.BlockView;
-import tobinio.denseflowers.mixin.client.AbstractBlockAccessor;
+import tobinio.denseflowers.mixin.AbstractBlockAccessor;
 
 import java.util.ArrayList;
 import java.util.List;
