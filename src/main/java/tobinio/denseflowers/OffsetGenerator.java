@@ -33,7 +33,7 @@ public class OffsetGenerator {
                     .multiply(0.45 / flower.callGetMaxHorizontalModelOffset());
 
             for (Vec3d location : allLocations) {
-                if (location.distanceTo(newLocation) <= 0.4) {
+                if (location.isInRange(newLocation, 0.4)) {
                     continue outer;
                 }
             }

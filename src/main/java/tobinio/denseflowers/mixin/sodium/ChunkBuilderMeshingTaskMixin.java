@@ -35,9 +35,9 @@ public class ChunkBuilderMeshingTaskMixin {
         if (blockState.getBlock() instanceof FlowerBlock) {
             for (Vec3d flowerOffset : OffsetGenerator.getFlowerOffsets(blockState, slice, pos)) {
 
-                OffsetStorage.modelOffset = flowerOffset;
+                OffsetStorage.offsets.put(new BlockPos(pos.getX(), pos.getY(), pos.getZ()), flowerOffset);
                 cache.getBlockRenderer().renderModel(model, blockState, pos, modelOffset);
-                OffsetStorage.modelOffset = null;
+                OffsetStorage.offsets.remove(new BlockPos(pos.getX(), pos.getY(), pos.getZ()));
             }
         }
     }
