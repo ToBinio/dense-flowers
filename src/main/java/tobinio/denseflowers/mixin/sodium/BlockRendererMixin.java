@@ -24,7 +24,7 @@ public class BlockRendererMixin {
     @Final
     private Vector3f posOffset;
 
-    @Inject (method = "renderModel", at = @At (value = "INVOKE", target = "Lorg/joml/Vector3f;add(FFF)Lorg/joml/Vector3f;", remap = false), remap = false)
+    @Inject (method = "renderModel", at = @At (value = "INVOKE", target = "Lorg/joml/Vector3f;add(FFF)Lorg/joml/Vector3f;"), remap = false)
     private void renderModel(BakedModel model, BlockState state, BlockPos pos, BlockPos origin, CallbackInfo ci) {
         if (OffsetStorage.modelOffset != null) {
             posOffset.add((float) OffsetStorage.modelOffset.getX(),
