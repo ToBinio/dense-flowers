@@ -1,6 +1,7 @@
 package tobinio.denseflowers;
 
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.FlowerBlock;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -32,8 +33,11 @@ public class OffsetGenerator {
             var newLocation = blockState.getModelOffset(world, flowerPos.add((i + 1) * 5, 0, (i + 1) * 3))
                     .multiply(0.45 / flower.callGetMaxHorizontalModelOffset());
 
+
             for (Vec3d location : allLocations) {
-                if (location.isInRange(newLocation, 0.4)) {
+                double rotation = Math.atan2(newLocation.x - location.x, newLocation.z - location.z);
+
+                if (location.distanceTo(newLocation) <= 0.4 || is45Degrees(rotation)) {
                     continue outer;
                 }
             }
@@ -57,6 +61,24 @@ public class OffsetGenerator {
         }
 
         return count;
+    }
+
+    public static boolean is45Degrees(double angle) {
+        double[] targetAngles = {Math.PI / 4, 3 * Math.PI / 4, 5 * Math.PI / 4, 7 * Math.PI / 4};
+
+        double normalizedAngle = angle % (2 * Math.PI);
+        if (normalizedAngle < 0) {
+            normalizedAngle += 2 * Math.PI;
+        }
+
+        for (double targetAngle : targetAngles) {
+            //check + rounding error
+            if (Math.abs(normalizedAngle - targetAngle) < 0.01) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
 }
