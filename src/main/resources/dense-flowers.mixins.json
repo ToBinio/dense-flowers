@@ -1,12 +1,12 @@
 {
   "required": true,
   "package": "tobinio.denseflowers.mixin",
-  "compatibilityLevel": "JAVA_21",
+  "compatibilityLevel": "JAVA_17",
   "client": [
     "AbstractBlockAccessor",
-    "SectionBuilderMixin",
+    "ChunkBuilderMixin",
     "sodium.ChunkBuilderMeshingTaskMixin",
-    "sodium.BlockRendererMixin"
+    "sodium.BlockRenderContextAccessor"
   ],
   "injectors": {
     "defaultRequire": 1
