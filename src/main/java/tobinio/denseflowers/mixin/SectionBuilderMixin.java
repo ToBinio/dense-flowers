@@ -41,7 +41,7 @@ public class SectionBuilderMixin {
         if (blockState.getBlock() instanceof FlowerBlock) {
             matrixStack.push();
 
-            var realOffset = blockState.getModelOffset(blockPos);
+            var realOffset = blockState.getModelOffset(renderRegion, blockPos);
             matrixStack.translate(-realOffset.getX(), -realOffset.getY(), -realOffset.getZ());
 
             for (Vec3d flowerOffset : OffsetGenerator.getFlowerOffsets(blockState, renderRegion, blockPos)) {
