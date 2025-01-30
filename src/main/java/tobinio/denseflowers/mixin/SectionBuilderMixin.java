@@ -34,7 +34,7 @@ public class SectionBuilderMixin {
     private BlockRenderManager blockRenderManager;
 
     @Inject (method = "build", at = @At (value = "INVOKE", target = "Lnet/minecraft/client/render/block/BlockRenderManager;renderBlock(Lnet/minecraft/block/BlockState;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/world/BlockRenderView;Lnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumer;ZLnet/minecraft/util/math/random/Random;)V"))
-    private void render(ChunkSectionPos sectionPos, ChunkRendererRegion renderRegion, VertexSorter vertexSorter,
+    private void denseflowers$render(ChunkSectionPos sectionPos, ChunkRendererRegion renderRegion, VertexSorter vertexSorter,
             BlockBufferAllocatorStorage allocatorStorage, CallbackInfoReturnable<SectionBuilder.RenderData> cir,
             @Local BlockState blockState, @Local (ordinal = 2) BlockPos blockPos, @Local MatrixStack matrixStack,
             @Local BufferBuilder bufferBuilder, @Local Random random) {

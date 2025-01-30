@@ -27,7 +27,7 @@ public class BlockRendererMixin {
     private Vector3f posOffset;
 
     @Inject (method = "renderModel", at = @At (value = "INVOKE", target = "Lorg/joml/Vector3f;add(FFF)Lorg/joml/Vector3f;"), remap = false)
-    private void renderModel(BakedModel model, BlockState state, BlockPos pos, BlockPos origin, CallbackInfo ci,
+    private void denseflowers$renderModel(BakedModel model, BlockState state, BlockPos pos, BlockPos origin, CallbackInfo ci,
             @Local Vec3d modelOffset) {
 
         Vec3d offset = OffsetStorage.offsets.get(pos);

@@ -9,7 +9,6 @@ import net.caffeinemc.mods.sodium.client.render.chunk.compile.tasks.ChunkBuilder
 import net.caffeinemc.mods.sodium.client.util.task.CancellationToken;
 import net.caffeinemc.mods.sodium.client.world.LevelSlice;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.block.FlowerBlock;
 import net.minecraft.client.render.model.BakedModel;
 import net.minecraft.util.math.BlockPos;
@@ -31,7 +30,7 @@ import tobinio.denseflowers.util.OffsetStorage;
 public class ChunkBuilderMeshingTaskMixin {
 
     @Inject (method = "execute(Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/ChunkBuildContext;Lnet/caffeinemc/mods/sodium/client/util/task/CancellationToken;)Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/ChunkBuildOutput;", at = @At (value = "INVOKE", target = "Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/pipeline/BlockRenderer;renderModel(Lnet/minecraft/client/render/model/BakedModel;Lnet/minecraft/block/BlockState;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/util/math/BlockPos;)V"))
-    private void execute(ChunkBuildContext buildContext, CancellationToken cancellationToken,
+    private void denseflowers$onRenderModel(ChunkBuildContext buildContext, CancellationToken cancellationToken,
             CallbackInfoReturnable<ChunkBuildOutput> cir, @Local BlockRenderer blockRenderer, @Local LevelSlice slice,
             @Local (ordinal = 0) BlockPos.Mutable pos, @Local (ordinal = 1) BlockPos.Mutable modelOffset,
             @Local BlockState blockState, @Local BakedModel model) {
