@@ -5,10 +5,13 @@
   "client": [
     "AbstractBlockAccessor",
     "SectionBuilderMixin",
-    "sodium.ChunkBuilderMeshingTaskMixin",
-    "sodium.BlockRendererMixin"
+    "sodium.BlockRendererMixin",
+    "sodium.ChunkBuilderMeshingTaskMixin"
   ],
   "injectors": {
     "defaultRequire": 1
-  }
+  },
+  "mixins": [
+    "TerrainRenderContext"
+  ]
 }

@@ -3,7 +3,7 @@ package tobinio.denseflowers.mixin.sodium;
 import com.llamalad7.mixinextras.sugar.Local;
 import net.caffeinemc.mods.sodium.client.render.chunk.compile.pipeline.BlockRenderer;
 import net.minecraft.block.BlockState;
-import net.minecraft.client.render.model.BakedModel;
+import net.minecraft.client.render.model.BlockStateModel;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import org.joml.Vector3f;
@@ -27,7 +27,7 @@ public class BlockRendererMixin {
     private Vector3f posOffset;
 
     @Inject (method = "renderModel", at = @At (value = "INVOKE", target = "Lorg/joml/Vector3f;add(FFF)Lorg/joml/Vector3f;"), remap = false)
-    private void denseflowers$renderModel(BakedModel model, BlockState state, BlockPos pos, BlockPos origin, CallbackInfo ci,
+    private void denseflowers$renderModel(BlockStateModel model, BlockState state, BlockPos pos, BlockPos origin, CallbackInfo ci,
             @Local Vec3d modelOffset) {
 
         Vec3d offset = OffsetStorage.offsets.get(pos);
