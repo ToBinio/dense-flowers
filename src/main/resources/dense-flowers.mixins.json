@@ -4,14 +4,10 @@
   "compatibilityLevel": "JAVA_21",
   "client": [
     "AbstractBlockAccessor",
-    "SectionBuilderMixin",
     "sodium.BlockRendererMixin",
     "sodium.ChunkBuilderMeshingTaskMixin"
   ],
   "injectors": {
     "defaultRequire": 1
-  },
-  "mixins": [
-    "TerrainRenderContext"
-  ]
+  }
 }
