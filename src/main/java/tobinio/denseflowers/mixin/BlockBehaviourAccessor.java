@@ -1,6 +1,6 @@
 package tobinio.denseflowers.mixin;
 
-import net.minecraft.block.AbstractBlock;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Invoker;
 
@@ -9,8 +9,8 @@ import org.spongepowered.asm.mixin.gen.Invoker;
  *
  * @author Tobias Frischmann
  */
-@Mixin (AbstractBlock.class)
-public interface AbstractBlockAccessor {
+@Mixin (BlockBehaviour.class)
+public interface BlockBehaviourAccessor {
     @Invoker
-    float callGetMaxHorizontalModelOffset();
+    float callGetMaxHorizontalOffset();
 }

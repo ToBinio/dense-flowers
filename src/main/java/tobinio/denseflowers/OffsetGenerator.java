@@ -1,12 +1,12 @@
 package tobinio.denseflowers;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.block.FlowerBlock;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.util.math.Vec3d;
-import net.minecraft.world.BlockView;
-import tobinio.denseflowers.mixin.AbstractBlockAccessor;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.FlowerBlock;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.phys.Vec3;
+import net.minecraft.world.level.BlockGetter;
+import tobinio.denseflowers.mixin.BlockBehaviourAccessor;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,22 +18,22 @@ import java.util.List;
  */
 public class OffsetGenerator {
 
-    public static List<Vec3d> getFlowerOffsets(BlockState blockState, BlockView world, BlockPos flowerPos) {
-        var baseLocation = blockState.getModelOffset(flowerPos);
-        AbstractBlockAccessor flower = (AbstractBlockAccessor) blockState.getBlock();
+    public static List<Vec3> getFlowerOffsets(BlockState blockState, BlockGetter world, BlockPos flowerPos) {
+        var baseLocation = blockState.getOffset(flowerPos);
+        BlockBehaviourAccessor flower = (BlockBehaviourAccessor) blockState.getBlock();
 
-        var allLocations = new ArrayList<Vec3d>();
+        var allLocations = new ArrayList<Vec3>();
         allLocations.add(baseLocation);
 
-        var locations = new ArrayList<Vec3d>();
+        var locations = new ArrayList<Vec3>();
 
         outer:
         for (int i = 0; i < getNumberOfSurroundingFlowers(world, flowerPos); i++) {
-            var newLocation = blockState.getModelOffset(flowerPos.add((i + 1) * 5, 0, (i + 1) * 3))
-                    .multiply(0.45 / flower.callGetMaxHorizontalModelOffset());
+            var newLocation = blockState.getOffset(flowerPos.offset((i + 1) * 5, 0, (i + 1) * 3))
+                    .scale(0.45 / flower.callGetMaxHorizontalOffset());
 
 
-            for (Vec3d location : allLocations) {
+            for (Vec3 location : allLocations) {
                 double rotation = Math.atan2(newLocation.x - location.x, newLocation.z - location.z);
 
                 if (location.distanceTo(newLocation) <= 0.4 || is45Degrees(rotation)) {
@@ -48,12 +48,12 @@ public class OffsetGenerator {
         return locations;
     }
 
-    private static int getNumberOfSurroundingFlowers(BlockView world, BlockPos flowerPos) {
+    private static int getNumberOfSurroundingFlowers(BlockGetter world, BlockPos flowerPos) {
         var count = 0;
         Direction[] directions = {Direction.NORTH, Direction.EAST, Direction.SOUTH, Direction.WEST};
 
         for (Direction dir : directions) {
-            if (world.getBlockState(flowerPos.add(dir.getOffsetX(), 0, dir.getOffsetZ()))
+            if (world.getBlockState(flowerPos.offset(dir.getStepX(), 0, dir.getStepZ()))
                     .getBlock() instanceof FlowerBlock) {
                 count++;
             }

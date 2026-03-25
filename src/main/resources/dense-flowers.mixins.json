@@ -3,7 +3,7 @@
   "package": "tobinio.denseflowers.mixin",
   "compatibilityLevel": "JAVA_21",
   "client": [
-    "AbstractBlockAccessor",
+    "BlockBehaviourAccessor",
     "sodium.BlockRendererMixin",
     "sodium.ChunkBuilderMeshingTaskMixin"
   ],

@@ -1,7 +1,7 @@
 package tobinio.denseflowers.util;
 
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Vec3d;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.phys.Vec3;
 
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -11,5 +11,5 @@ import java.util.concurrent.ConcurrentHashMap;
  * @author Tobias Frischmann
  */
 public class OffsetStorage {
-    public static final ConcurrentHashMap<BlockPos, Vec3d> offsets = new ConcurrentHashMap<>();
+    public static final ConcurrentHashMap<BlockPos, Vec3> offsets = new ConcurrentHashMap<>();
 }
